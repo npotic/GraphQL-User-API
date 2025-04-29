@@ -16,6 +16,9 @@ GraphQL API koristi Apollo Server. API podržava registraciju novih korisnika i 
 ### Mutation: addUser
 Registruje novog korisnika.
 
+### Mutation: deleteUser
+Brisanje korisnika.
+
 ### Query: users
 Dohvatanje korisnika.
 
@@ -29,11 +32,18 @@ mutation {
   }
 }
 
-query {
-  users {
+mutation {
+  deleteUser(id: 1) {
     id
     name
     email
   }
 }
 
+query {
+  users(name: "Nemanja") {
+    id
+    name
+    email
+  }
+}
